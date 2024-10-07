@@ -1,0 +1,468 @@
+
+
+    <!DOCTYPE html>
+    <html class="" lang="en" dir="ltr">
+    <head>
+        <title>        Log In
+ | Red Hat IDP</title>
+
+            <script type="text/javascript">
+                function faddo(dd, upi) {
+                    dd.page.category.subCategories.push("rh");
+                    dd.page.category.subCategories.push("profile_level.full_with_email_verification");
+                };
+            </script>
+<script type="text/javascript">
+
+    /* for EDDL */
+    window.appEventData = window.appEventData || [];
+
+    /* for DDO */
+    var digitalData = {
+      page: {
+        attributes: {
+          queryParameters: []
+        },
+        category: {
+          contentType: "",
+          contentSubType: "",
+          keyPage: false,
+          keyPageType: "",
+          pageType: "IDM",
+          primaryCategory: "auth",
+          subCategories: []
+        },
+        pageInfo: {
+          breadCrumbs: [],
+          cms: "idm ${project.version}",
+          destinationURL: "",
+          errorMessage: "",
+          errorType: "",
+          language: "en",
+          pageID: "",
+          pageName: "",
+          referringDomain: "",
+          referringURL: "",
+          syndicationIds: [],
+          sysEnv: "desktop",
+          title: ""
+        }
+      },
+      user: [{
+        profile: [{
+          profileInfo: {
+            accountID: "",
+            daysSinceLastPurchase: "",
+            daysSinceRegistration: "",
+            eloquGUID: "",
+            keyCloakID: "",
+            loggedIn: false,
+            profileID: "",
+            registered: false,
+            socialAccountsLinked: [],
+            subscriptionFrequency: "",
+            subscriptionLevel: "",
+            userAgent: ""
+          }
+        }]
+      }]
+    };
+
+
+    ( function( w, d, dd, undefined ) {
+    
+      function getCookie( name ) {
+        var value = "; " + document.cookie;
+        var parts = value.split( "; " + name + "=" );
+        if ( parts.length == 2 ) {
+          return parts.pop().split( ";" ).shift();
+        }
+      }
+      
+      function getCategories() {
+        var relURL = w.location.pathname; 
+        var categories = { primaryCategory: "", subCategories: [] },
+          url = relURL.split('?')[0].split('#')[0].split(/\//);
+        for(var i=1, l=url.length; i<l; i++) {
+          if (i !== 1 && i <= 4) {
+            categories.subCategories.push(url[i]);
+          }
+          if (i === 1) {
+            categories.primaryCategory = url[i].length > 0 ? url[i] : "root";
+          }
+        }
+        return categories;
+      }
+      
+      function getQueryParams() {
+        return w.location.href.split('?')[1] ? w.location.href.split('?')[1].replace(/=/g,':').split('&') : "";
+      }
+           
+      dd.page.attributes.queryParameters = getQueryParams();
+      var categoryObj = getCategories();
+      dd.page.category.primaryCategory = categoryObj.primaryCategory;
+      dd.page.pageInfo.destinationURL = w.location.href;
+      dd.page.pageInfo.pageID = "info.ftl"; 
+      dd.page.pageInfo.pageName = d.title.split("|")[0].trim();
+      dd.page.pageInfo.title = d.title.trim();
+
+      if ( d.referrer ) {
+        var a = d.createElement("a");
+        a.href = d.referrer;
+        dd.page.pageInfo.referringDomain = a.hostname;
+        dd.page.pageInfo.referringURL = a.href;
+      }
+      dd.page.pageInfo.sysEnv = ( w.innerWidth <= 768 ) ? "tablet" : "desktop";
+      var elqGUID = getCookie( "rh_elqCustomerGUID" );
+      
+      var upi = dd.user[ 0 ].profile[ 0 ].profileInfo; 
+      
+      if (elqGUID) {
+        upi.eloquaGUID = elqGUID;
+      }
+      
+      if(w.navigator){
+        upi.userAgent = w.navigator.userAgent;
+      }
+      
+      faddo(dd, upi);
+            
+    } )( window, document, digitalData );
+    
+</script> 
+<script>
+  var host = window.location.hostname;
+  if (host == "sso.stage.redhat.com") {
+    document.write('\x3Cscript id="trustarc" type="text/javascript" src="//static.redhat.com/libs/redhat/marketing/latest/trustarc/trustarc.stage.js" async="" data-domain="redhat_test.com" data-debug="">\x3C/script>');
+  }
+  if (host == "sso.redhat.com") {
+    document.write('\x3Cscript id="trustarc" type="text/javascript" src="//static.redhat.com/libs/redhat/marketing/latest/trustarc/trustarc.js">\x3C/script>');
+  }
+</script>
+
+<script id="dpal" src="https://www.redhat.com/ma/dpal.js" type="text/javascript"></script>
+
+
+        <meta name="robots" content="noindex, nofollow">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://redhat.com/">
+        <meta property="og:determiner" content="the">
+        <meta property="og:site_name" content="Red Hat">
+        <meta property="og:title" content="Red Hat">
+
+
+<link rel="icon" href="/auth/resources/sm0pj/login/rhd-theme/img/favicon.ico">
+
+<!-- Patternfly Elements no-js fallback styles -->
+
+<style>
+.pfe-navigation {
+    --pfe-navigation__nav-bar--highlight-color: #e00;
+    --pfe-navigation__dropdown--highlight-color: #e00;
+}
+</style>
+
+        <link href="/auth/resources/sm0pj/login/rhd-theme/dist/styles/main.css?v=552386e58c9e08990c614728c9b6c1fb" rel="stylesheet" />
+
+<!-- Required for lightdom styles -->
+<link rel="stylesheet" href="/auth/resources/sm0pj/login/rhd-theme/dist/pfelements/assets/bundle-CDjXsjNu.css" />
+<style>
+    rh-footer:not(:defined) {
+        opacity: 0;
+    }
+</style>
+
+
+<script type="text/javascript">
+    (function(d) {
+        // Not supported in IE11
+        if (!d.currentScript) {
+            var loginie11 = document.createElement('link');
+            loginie11.href = "/auth/resources/sm0pj/login/rhd-theme/css/login-ie11-9811430bc1.min.css"
+            loginie11.rel = 'stylesheet';
+            d.head.appendChild(loginie11);
+        }
+    })(document);
+</script> 
+
+
+<!-- Sentry -->
+<script
+  src="https://js.sentry-cdn.com/73604e6540bd413bb9d58ab4601b8aa8.min.js"
+  crossorigin="anonymous"
+  data-lazy="no"
+></script>
+<script>
+  var host = window.location.hostname;
+  if (host === "localhost") Sentry.init({environment:"localhost"});
+  if (host === "sso.dev.redhat.com") Sentry.init({environment:"dev"});
+  if (host === "sso.qa.redhat.com") Sentry.init({environment:"qa"});
+  if (host === "sso.stage.redhat.com") Sentry.init({environment:"stage"});
+  if (host === "sso.redhat.com") Sentry.init({environment:"production"});
+</script>
+
+<!-- unified nav and footer scripts -->
+<script type="module">
+  import "/auth/resources/sm0pj/login/rhd-theme/dist/pfelements/bundle.js";
+  await customElements.whenDefined("rh-footer");
+</script>
+
+<!-- Common JS -->
+<script type="text/javascript">
+    rhd = {
+        config: {
+            username: '',
+            firstName: '',
+            lastName: '',
+            userEmail: '',
+            regHintEmail: '',
+            jobTitle: null,
+            phoneNumber: null,
+            user_profile_level: "profile_level.full_with_email_verification",
+            form_fields_visible: {"marketingOptIn": true},
+            form_fields_required: {},
+            website_current: "rh",
+            email_strict_check: true,
+            allow_duplicate_email: true,
+            displayRegistrationMessage: false,
+            registrationMessage: '',
+            registrationMessageType: '',
+            displayRegistrationForm: true,
+            displayEmailVerifyInstructions: false,
+            displayUpdateProfileMessage: false,
+            updateProfileMessage: '',
+            updateProfileMessageType: '',
+            isAutoUserRegFlow: false,
+            skipValidation: false
+        }
+    }
+        rhd.config.loginUrl = "/auth/realms/redhat-external/login-actions/authenticate?client_id=rht-rol&amp;tab_id=KJM_Rrihm5w&amp;client_data=eyJydSI6Imh0dHBzOi8vc3NvLnJlZGhhdC5jb20vYXV0aC9yZWFsbXMvcmVkaGF0LWV4dGVybmFsL2FjY291bnQvIiwicnQiOiJjb2RlIn0";
+      rhd.config.registrationAction = "/auth/realms/redhat-external/login-actions/registration?client_id=rht-rol&amp;tab_id=KJM_Rrihm5w&amp;client_data=eyJydSI6Imh0dHBzOi8vc3NvLnJlZGhhdC5jb20vYXV0aC9yZWFsbXMvcmVkaGF0LWV4dGVybmFsL2FjY291bnQvIiwicnQiOiJjb2RlIn0";
+    window.currentLanguageTag = "en";
+</script>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
+
+
+        <script src="/auth/resources/sm0pj/login/rhd-theme/dist/scripts/vendors.js?v=b3b7153a1ecbab1f81860a79f948fa92" type="text/javascript"></script>
+
+<script>
+    jQuery.extend( jQuery.validator.messages, {
+        required: "This field is required",
+        remote: "Please fix this field",
+        url: "Please enter a valid URL",
+        date: "Please enter a valid date",
+        dateISO: "Please enter a valid date (ISO)",
+        number: "Please enter a valid number",
+        digits: "Please enter only digits",
+        equalTo: "Please enter the same value again",
+        maxlength: jQuery.validator.format( "Please enter no more than {0} characters" ),
+        minlength: jQuery.validator.format( "Please enter at least {0} characters" ),
+        rangelength: jQuery.validator.format( "Please enter a value between {0} and {1} characters long" ),
+        range: jQuery.validator.format( "Please enter a value between {0} and {1}" ),
+        max: jQuery.validator.format( "Please enter a value less than or equal to {0}" ),
+        min: jQuery.validator.format( "Please enter a value greater than or equal to {0}" ),
+        step: jQuery.validator.format( "Please enter a multiple of {0}" )
+    } );
+    jQuery.extend( jQuery.validator.messages, {
+        phone: "This field may only contain the following characters (0-9) (+) (-) (space) (.).",
+        bannedChars: "This field cannot contain the following special characters (&quot;) ($) (^) (&lt;) (&gt;) (|) (+) (%) (\\).",
+        bannedCharsUsername: "Red Hat Login ID cannot contain spaces, national characters or the following special characters (&quot;) ($) (^) (&lt;) (&gt;) (|) (+) (%) (/) (;) (:) (,) () (*) (=) (~) (#) (() ())",
+        remoteCustom: "Please fix this field"
+    } );
+</script>
+
+        <script src="/auth/resources/sm0pj/login/rhd-theme/dist/scripts/custom.js?v=001f85b08ddb92dc426f3cd3878f68b5" type="text/javascript"></script>
+
+    </head>
+
+        <body class="home device-authorization">
+            <a href="#main-content" class="visually-hidden focusable skip-link">
+                Skip to main content
+            </a>
+            <div class="layout-container">
+
+<pfe-navigation id="pfe-navigation" role="banner">
+    <nav class="pfe-navigation" aria-label="Main Navigation">
+        <div class="pfe-navigation__logo-wrapper" id="pfe-navigation__logo-wrapper">
+            <a href="#" class="pfe-navigation__logo-link">
+                <img class="pfe-navigation__logo-image pfe-navigation__logo-image--screen pfe-navigation__logo-image--print pfe-navigation__logo-image--small" src="/auth/resources/sm0pj/login/rhd-theme/img/RHLogo_white.svg" width="400" alt="Red Hat logo" />
+            </a>
+        </div>
+    </nav>
+    
+    <div slot="secondary-links" class="pfe-navigation__site-switcher">
+        <button class="pfe-navigation__secondary-link">
+            <pfe-icon icon="web-icon-grid-3x3" size="sm" aria-hidden="true"></pfe-icon>
+            All Red Hat
+        </button>
+        <pfe-navigation-dropdown dropdown-width="full">
+        <site-switcher lang='en' class="pf-u-px-xl"></site-switcher>
+        </pfe-navigation-dropdown>
+        
+    </div>
+
+        <div slot="account">
+            <a href="/auth/realms/redhat-external/login-actions/authenticate?client_id=rht-rol&amp;tab_id=KJM_Rrihm5w&amp;client_data=eyJydSI6Imh0dHBzOi8vc3NvLnJlZGhhdC5jb20vYXV0aC9yZWFsbXMvcmVkaGF0LWV4dGVybmFsL2FjY291bnQvIiwicnQiOiJjb2RlIn0">
+                <pfe-icon icon="web-icon-user" pfe-size="md" aria-hidden="true"></pfe-icon>
+                Log in
+            </a>
+        </div>
+</pfe-navigation>
+
+                <div class="rhd-mobile-overlay"></div>
+                <main role="main">
+                    <div class="container">
+                        <div class="content">
+                            <div class="pf-c-login">
+                                <div class="pf-c-login__container">
+                                    <header id="kc-header" class="pf-c-login__header pf-u-font-size-4xl pf-u-text-align-center pf-u-mb-3xl">
+                                        <h1 style="color: white;"> 
+                                            <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="logo" style="width:200px" />
+                                        </h1>
+                                    </header>
+                                    <main class="pf-c-login__main">
+                                        <header class="pf-c-login__main-header pf-u-pb-2xl">
+                                                <h1 class="pf-c-title pf-m-3xl">        Confirm validity of e-mail address adryanusfirahiman.hcrh7@infinitelearningstudent.id.
+</h1>
+                                            <p class="pf-c-login__main-header-desc">        Confirm validity of e-mail address adryanusfirahiman.hcrh7@infinitelearningstudent.id.
+</p>
+                                        </header>
+                                        <div class="pf-c-login__main-body pf-u-pb-2xl">
+        <div id="kc-info-message">
+                    <a class="pf-c-button pf-m-primary pf-u-mr-md" href="https://sso.redhat.com/auth/realms/redhat-external/login-actions/action-token?key=eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI0NzQzYTkzMC03YmJiLTRkZGQtOTgzMS00ODcxNGRlZDc0YjUifQ.eyJleHAiOjE3MjU5NjM0NzgsImlhdCI6MTcyNTg5NjA3OSwiY29tcG91bmRPcmlnaW5hbEF1dGhlbnRpY2F0aW9uU2Vzc2lvbklkIjoiNTMyZmRhNzMtMjQ0Ni00NTMyLTlmZjgtMzE4NjVmY2M0ZDBlLk1VeFM3TWIxeUNrLjZiMmNmMTNlLTg4ZTItNDc1ZC1iZDdmLTZmNmU1NmRmZmZiYiIsImp0aSI6IjhkYTEyYzk0LThkMWItNDJlMS04YzljLTc2YTFkMTU2MzMzOSIsImlzcyI6Imh0dHBzOi8vc3NvLnJlZGhhdC5jb20vYXV0aC9yZWFsbXMvcmVkaGF0LWV4dGVybmFsIiwiYXVkIjoiaHR0cHM6Ly9zc28ucmVkaGF0LmNvbS9hdXRoL3JlYWxtcy9yZWRoYXQtZXh0ZXJuYWwiLCJzdWIiOiJmOjUyOGQ3NmZmLWY3MDgtNDNlZC04Y2Q1LWZlMTZmNGZlMGNlNjphZHJ5YW51c2ZpcmFoaW1hbi5oY3JoNyIsInR5cCI6InZlcmlmeS1lbWFpbCIsImF6cCI6InJodC1yb2wiLCJub25jZSI6IjhkYTEyYzk0LThkMWItNDJlMS04YzljLTc2YTFkMTU2MzMzOSIsImFzaWQiOiIwZmUyMjFiYy1hZmNmLTRjYzgtYWMwYS1hMTdiMGE3YzgwODUuS0pNX1JyaWhtNXcuNmIyY2YxM2UtODhlMi00NzVkLWJkN2YtNmY2ZTU2ZGZmZmJiIiwiZW1sIjoiYWRyeWFudXNmaXJhaGltYW4uaGNyaDdAaW5maW5pdGVsZWFybmluZ3N0dWRlbnQuaWQiLCJvYXNpZCI6IjUzMmZkYTczLTI0NDYtNDUzMi05ZmY4LTMxODY1ZmNjNGQwZS5NVXhTN01iMXlDay42YjJjZjEzZS04OGUyLTQ3NWQtYmQ3Zi02ZjZlNTZkZmZmYmIifQ.dFaLhPrKH6CaqBGMY-MnvpYzPpxD5t6ByXW3cHzrjduNFodp4Hwav6wAb3_ZsPNsUszLvQAZvRt17BhyMLdosQ&amp;client_id=rht-rol&amp;tab_id=KJM_Rrihm5w&amp;client_data=eyJydSI6Imh0dHBzOi8vc3NvLnJlZGhhdC5jb20vYXV0aC9yZWFsbXMvcmVkaGF0LWV4dGVybmFsL2FjY291bnQvIiwicnQiOiJjb2RlIn0">Finish</a>
+                    <a class="pf-c-button pf-m-link" href="https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.6/html-single/server_administration_guide/index#device_authorization_grant" target="_blank">Learn more about device authorization <i class="fas fa-external-link-alt"></i></a>
+        </div>
+                                        </div>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </main>
+<rh-footer data-analytics-region="page-footer">
+  <a slot="logo" href="https://redhat.com/en" data-analytics-category="Footer" data-analytics-text="Logo">
+    <img alt="Red Hat logo" src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" loading="lazy" />
+  </a>
+  <rh-footer-social-link slot="social-links" icon="linkedin"><a href="https://www.linkedin.com/company/red-hat" data-analytics-region="social-links-exit" data-analytics-category="Footer|social-links" data-analytics-text="LinkedIn">LinkedIn</a></rh-footer-social-link>
+  <rh-footer-social-link slot="social-links" icon="youtube"><a href="https://www.youtube.com/user/RedHatVideos" data-analytics-region="social-links-exit" data-analytics-category="Footer|social-links" data-analytics-text="YouTube">YouTube</a></rh-footer-social-link>
+  <rh-footer-social-link slot="social-links" icon="facebook"><a href="https://www.facebook.com/redhatinc" data-analytics-region="social-links-exit" data-analytics-category="Footer|social-links" data-analytics-text="Facebook">Facebook</a></rh-footer-social-link>
+  <rh-footer-social-link slot="social-links" icon="twitter"><a href="https://twitter.com/RedHat" data-analytics-region="social-links-exit" data-analytics-category="Footer|social-links" data-analytics-text="Twitter">X/Twitter</a></rh-footer-social-link>
+  <h3 slot="links" data-analytics-text="Products">Products</h3>
+  <ul slot="links">
+    <li><a href="https://redhat.com/en/technologies/linux-platforms/enterprise-linux" data-analytics-category="Footer|Products" data-analytics-text="Red Hat Enterprise Linux">Red Hat Enterprise Linux</a></li>
+    <li><a href="https://redhat.com/en/technologies/cloud-computing/openshift" data-analytics-category="Footer|Products" data-analytics-text="Red Hat OpenShift">Red Hat OpenShift</a></li>
+    <li><a href="https://redhat.com/en/technologies/management/ansible" data-analytics-category="Footer|Products" data-analytics-text="Red Hat Ansible Automation Platform">Red Hat Ansible Automation Platform</a></li>
+    <li><a href="https://redhat.com/en/technologies/cloud-computing/openshift/cloud-services" data-analytics-category="Footer|Products" data-analytics-text="Cloud services">Cloud services</a></li>
+    <li><a href="https://redhat.com/en/technologies/all-products" data-analytics-category="Footer|Products" data-analytics-text="See all products">See all products</a></li>
+  </ul>
+  <h3 slot="links" data-analytics-text="Tools">Tools</h3>
+  <ul slot="links">
+    <li><a href="https://sso.redhat.com" data-analytics-category="Footer|Tools" data-analytics-text="My account">My account</a></li>
+    <li><a href="https://redhat.com/en/services/training-and-certification" data-analytics-category="Footer|Tools" data-analytics-text="Training and certification">Training and certification</a></li>
+    <li><a href="https://access.redhat.com" data-analytics-category="Footer|Tools" data-analytics-text="Customer support">Customer support</a></li>
+    <li><a href="https://developers.redhat.com/" data-analytics-category="Footer|Tools" data-analytics-text="Developer resources">Developer resources</a></li>
+    <li><a href="https://learn.redhat.com/" data-analytics-category="Footer|Tools" data-analytics-text="Learning community">Learning community</a></li>
+    <li><a href="https://connect.redhat.com/" data-analytics-category="Footer|Tools" data-analytics-text="Partner resources">Partner resources</a></li>
+    <li><a href="https://redhat.com/en/resources" data-analytics-category="Footer|Tools" data-analytics-text="Resource library">Resource library</a></li>
+  </ul>
+  <h3 slot="links" data-analytics-text="Try buy sell">Try, buy & sell</h3>
+  <ul slot="links">
+    <li><a href="https://redhat.com/en/products/trials" data-analytics-category="Footer|Try buy sell" data-analytics-text="Product trial center">Product trial center</a></li>
+    <li><a href="https://marketplace.redhat.com" data-analytics-category="Footer|Try buy sell" data-analytics-text="Red Hat Marketplace">Red Hat Marketplace</a></li>
+    <li><a href="https://catalog.redhat.com/" data-analytics-category="Footer|Tools" data-analytics-text="Red Hat Ecosystem Catalog">Red Hat Ecosystem Catalog</a></li>
+    <li><a href="http://redhat.force.com/finder/" data-analytics-category="Footer|Try buy sell" data-analytics-text="Find a partner">Find a partner</a></li>
+    <li><a href="https://www.redhat.com/en/store" data-analytics-category="Footer|Try buy sell" data-analytics-text="Red Hat Store">Red Hat Store</a></li>
+    <li><a href="https://cloud.redhat.com/" data-analytics-category="Footer|Tools" data-analytics-text="Console">Console</a></li>
+  </ul>
+  <h3 slot="links" data-analytics-text="Communicate">Communicate</h3>
+  <ul slot="links">
+    <li><a href="https://redhat.com/en/services/consulting-overview#contact-us" data-analytics-category="Footer|Communicate" data-analytics-text="Contact consulting">Contact consulting</a></li>
+    <li><a href="https://redhat.com/en/contact" data-analytics-category="Footer|Communicate" data-analytics-text="Contact sales">Contact sales</a></li>
+    <li><a href="https://redhat.com/en/services/training-and-certification/contact-us" data-analytics-category="Footer|Communicate" data-analytics-text="Contact training">Contact training</a></li>
+    <li><a href="https://redhat.com/en/about/social" data-analytics-category="Footer|Communicate" data-analytics-text="Social">Social</a></li>
+  </ul>
+  <rh-footer-block slot="main-secondary">
+    <h3 slot="header" data-analytics-text="About Red Hat">About Red Hat</h3>
+    <p> We’re the world’s leading provider of enterprise open source solutions—including Linux, cloud, container, and Kubernetes. We deliver hardened solutions that make it easier for enterprises to work across platforms and environments, from the core datacenter to the network edge.</p>
+  </rh-footer-block>
+  <rh-footer-block slot="main-secondary">
+    <h3 slot="header" data-analytics-text="Subscribe to our newsletter Red Hat Shares">Subscribe to our newsletter, Red Hat Shares</h3>
+    <rh-cta><a href="https://www.redhat.com/en/email-preferences?newsletter=RH-Shares&intcmp=7016000000154xCAAQ" data-analytics-category="Footer|About Red Hat" data-analytics-text="Sign up now">Sign up now</a></rh-cta>
+  </rh-footer-block>
+
+  <!-- Universal Footer -->
+  <rh-footer-universal slot="universal">
+    <h3 slot="links-primary" data-analytics-text="Red Hat legal and privacy links" hidden>Red Hat legal and privacy links</h3>
+    <ul slot="links-primary" data-analytics-region="page-footer-bottom-primary">
+      <li><a href="https://redhat.com/en/about/company" data-analytics-category="Footer|Corporate" data-analytics-text="About Red Hat">About Red Hat</a></li>
+      <li><a href="https://redhat.com/en/jobs" data-analytics-category="Footer|Corporate" data-analytics-text="Jobs">Jobs</a></li>
+      <li><a href="https://redhat.com/en/events" data-analytics-category="Footer|Corporate" data-analytics-text="Events">Events</a></li>
+      <li><a href="https://redhat.com/en/about/office-locations" data-analytics-category="Footer|Corporate" data-analytics-text="Locations">Locations</a></li>
+      <li><a href="https://redhat.com/en/contact" data-analytics-category="Footer|Corporate" data-analytics-text="Contact Red Hat">Contact Red Hat</a></li>
+      <li><a href="https://redhat.com/en/blog" data-analytics-category="Footer|Corporate" data-analytics-text="Red Hat Blog">Red Hat Blog</a></li>
+      <li><a href="https://redhat.com/en/about/our-culture/diversity-equity-inclusion" data-analytics-category="Footer|Corporate" data-analytics-text="Diversity equity and inclusion">Diversity, equity, and inclusion</a></li>
+      <li><a href="https://coolstuff.redhat.com/" data-analytics-category="Footer|Corporate" data-analytics-text="Cool Stuff Store">Cool Stuff Store</a></li>
+      <li><a href="https://www.redhat.com/en/summit" data-analytics-category="Footer|Corporate" data-analytics-text="Red Hat Summit">Red Hat Summit</a></li>
+    </ul>
+    <rh-footer-copyright slot="links-secondary">© 2022 Red Hat, Inc.</rh-footer-copyright>
+    <h3 slot="links-secondary" data-analytics-text="Red Hat legal and privacy links" hidden>Red Hat legal and privacy links</h3>
+    <ul slot="links-secondary" data-analytics-region="page-footer-bottom-secondary">
+      <li><a href="https://redhat.com/en/about/privacy-policy" data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="Privacy statement">Privacy statement</a></li>
+      <li><a href="https://redhat.com/en/about/terms-use" data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="Terms of use">Terms of use</a></li>
+      <li><a href="https://redhat.com/en/about/all-policies-guidelines" data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="All policies and guidelines">All policies and guidelines</a></li>
+      <li><a href="https://redhat.com/en/about/digital-accessibility" data-analytics-category="Footer|Red Hat legal and privacy links" data-analytics-text="Digital accessibility" class="active">Digital accessibility</a></li>
+      <li><span id="teconsent" style="line-height: 1.1;"> </span></li>
+    </ul>
+  </rh-footer-universal>
+</rh-footer>
+
+<div id="consent_blackbar" style="position: fixed;bottom: 0;width: 100%;z-index: 5;padding: 10px;"></div>
+
+            </div>
+
+<div class="pf-c-backdrop" id="addressModal" style="display:none" data-you-entered="You entered" data-suggested-addresses="Suggested addresses" data-suggested-address="Suggested address">
+    <div class="pf-l-bullseye">
+        <div class="pf-c-modal-box pf-m-sm" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
+            <button class="pf-c-button pf-m-plain" type="button" aria-label="Close dialog">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+            <header class="pf-c-modal-box__header">
+                <h1 class="pf-c-modal-box__title" id="modal-title">Address Validation</h1>
+            </header>
+            <div class="pf-c-modal-box__body" id="modal-description"></div>
+            <footer class="pf-c-modal-box__footer">
+                <button class="pf-c-button pf-m-primary" id="addressAcceptChange" type="button">Accept change</button>
+                <button class="pf-c-button pf-m-secondary" id="addressKeepEnteredAddress" type="button">Keep entered address</button>
+            </footer>
+        </div>
+    </div>
+</div>
+<script>
+    initHeaderDropdown();
+    initMobileMenu();
+
+    function loadHighlightStyle() {
+        var root = document.documentElement;
+        root.style.setProperty('--pfe-navigation__nav-bar--highlight-color', '#e00');
+        root.style.setProperty('--pfe-navigation__dropdown--highlight-color', '#e00');
+    }
+    window.addEventListener("load", loadHighlightStyle);
+</script>
+
+<script type="text/javascript">  
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {  
+        _satellite.pageBottom();  
+    } 
+    $().ready(new function() {
+      sendAsyncUDEvent();
+    });
+</script>   
+
+        </body>
+    </html>
